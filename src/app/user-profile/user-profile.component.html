@@ -1,0 +1,46 @@
+<div *ngIf="auth.user$ | async; then authenticated else guest">
+
+</div>
+
+<!-- User NOT logged in -->
+<ng-template #guest>
+  <div class="card mx-auto ml-4 mr-4 border-white text-center p-5 bg-light">
+    <h1 class="text-dark">
+      Game of Thrones Game!
+    </h1>
+
+    <h5 class="mb-5 mt-4 text-dark">Login to get started...</h5>
+    <div class="justify-content">
+      <button class="btn btn-primary" (click)="auth.googleLogin()">
+        Login With Google
+      </button>
+    </div>
+  </div>
+</ng-template>
+
+
+<!-- User logged in -->
+<ng-template #authenticated>
+  <div *ngIf="auth.user$ | async as user">
+    <div class="card mx-auto ml-4 mr-4 bg-light border-white">
+      <img class="user-img-smaller rounded-circle card-img-top mx-auto mt-4" [src]="user.photoURL" alt="User Image">
+      <div class="card-body text-center">
+        <h3 class="card-title">{{ user.displayName ? user.displayName : user.email }}</h3>
+        <div class="justify-content mt-4">
+          <button class="btn btn-dark m-1" (click)="auth.signOut()">Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<div class="card mx-auto ml-4 mr-4 mt-4 border-white bg-warning">
+  <div class="card-body text-center">
+    <h3 class="card-title text-white"><i>Support Me!</i></h3>
+    <div class="justify-content mt-4">
+      <button class="btn btn-patreon m-1 w-25 h-50" (click)="patreonRedirect()"><img src="../../assets/Patreon_White.png"
+          class="w-100 img-fluid" alt="Patreon">
+      </button>
+    </div>
+  </div>
+</div>

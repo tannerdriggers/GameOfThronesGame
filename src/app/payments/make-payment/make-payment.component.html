@@ -1,0 +1,5 @@
+<div *ngIf="auth.user$ | async">
+  <button (click)="handlePayment()" class="btn btn-light">
+    Pay Money
+  </button>
+</div>

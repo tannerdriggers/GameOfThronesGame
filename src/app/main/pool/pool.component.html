@@ -1,0 +1,10 @@
+<div *ngFor="let pool of pools$ | async">
+  <a (click)="joinPool(pool.id)" class="btn-warning">
+    <div class="card mx-auto ml-4 mr-4 mt-4 border-white bg-warning">
+      <div class="card-body text-center">
+        <h3>{{ pool.poolName }}</h3>
+        <p>Entry Fee: <strong>${{ pool.poolEntryFee / 100 }}</strong></p>
+      </div>
+    </div>
+  </a>
+</div>

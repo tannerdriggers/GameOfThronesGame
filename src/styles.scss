@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap/scss/bootstrap-reboot';
+@import '~bootstrap/scss/bootstrap-grid';
+
+.btn-patreon {
+    background-color: rgb(248, 90, 68);
+    border-color: rgb(248, 90, 68);
+}
+
+.btn-patreon:hover {
+    background-color: rgb(207, 78, 61);
+}
+
+.m-body {
+    margin-top: 4.5rem !important;
+}
