@@ -1,7 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { AuthService, User } from 'src/app/core/auth.service';
 import { Observable } from 'rxjs';
-import { map, first, last } from 'rxjs/operators';
+import { map, first } from 'rxjs/operators';
 import { AngularFirestore, DocumentReference, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 import { PaymentService } from 'src/app/payments/payment.service';
@@ -27,22 +27,29 @@ export class PoolComponent implements OnInit {
 
   private user: User;
 
-  private pools$: Observable<any>;
+  private pools$: Observable<pool[]>;
+  private userPools$: Observable<pool[]>;
+  private usersPools: pool[];
 
   constructor(private auth: AuthService, private db: AngularFirestore, private paymentSvc: PaymentService) { }
 
   ngOnInit() {
-    this.auth.user$.subscribe(user => this.user = user);
+    this.auth.user$.subscribe(user => {
+      this.user = user;
+      this.userDocReference = this.db.doc(`/users/${this.user.uid}`).ref;
+    });
 
-    this.pools$ = this.db.collection<pool>(`/pool`).snapshotChanges().pipe(
-      map(actions => {
-        return actions.map(a => {
-          const data = a.payload.doc.data() as pool;
-          const id = a.payload.doc.id;
-          return { id, ...data };
-        });
-      })
-    );
+    this.pools$ = this.db.collection<pool>(`/pool`)
+      .snapshotChanges()
+      .pipe(
+        map(actions => {
+          return actions.map(a => {
+            const data = a.payload.doc.data() as pool;
+            const id = a.payload.doc.id;
+            return { id, ...data };
+          });
+        })
+      );
 
     this.handler = StripeCheckout.configure({
       key: environment.stripeKey,
@@ -63,7 +70,6 @@ export class PoolComponent implements OnInit {
     this.pool = this.db.doc<pool>(`/pool/${poolId}`);
     this.pool.valueChanges().pipe(first()).subscribe(d => {
       this.poolData = d;
-      this.userDocReference = this.db.doc(`/users/${this.user.uid}`).ref;
       let userInData = false;
       for (let ref of this.poolData.users) {
         if (ref.id === this.userDocReference.id) {
@@ -82,6 +88,9 @@ export class PoolComponent implements OnInit {
     this.handler.open({
       name: 'Game of Thrones Game',
       amount: this.amount
+    })
+    .catch(error => {
+      console.log(error);  
     });
   }
 

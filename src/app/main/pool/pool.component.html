@@ -1,5 +1,5 @@
 <div *ngFor="let pool of pools$ | async">
-  <a (click)="joinPool(pool.id)" class="btn-warning">
+  <a (click)="joinPool(pool.id)">
     <div class="card mx-auto ml-4 mr-4 mt-4 border-white bg-warning">
       <div class="card-body text-center">
         <h3>{{ pool.poolName }}</h3>

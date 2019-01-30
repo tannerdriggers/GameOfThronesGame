@@ -1,13 +1,27 @@
-<div class="card mx-auto ml-4 mr-4 border-white text-center p-3 bg-light">
-  <h1 class="text-dark">
-    Game of Thrones Game!
-  </h1>
-  <div class="justify-content mt-4">
-    <button class="btn btn-primary">
-      Create a New Pool
-    </button>
+<div *ngIf="user">
+  <div class="card mx-auto ml-4 mr-4 border-white text-center p-3 bg-light">
+    <h1 class="text-dark">
+      Game of Thrones Game!
+    </h1>
+    <div class="justify-content mt-4">
+      <button (click)="createPool()" class="btn btn-primary">
+        Create a New Pool
+      </button>
+    </div>
+    <div *ngIf="userPools$">
+      <h5 class="mt-4 text-dark">Currently Entered Pools</h5>
+      <div *ngFor="let pool of userPools$ | async">
+        <a (click)="joinPool(pool.id)">
+          <div class="card mx-auto ml-4 mr-4 mt-4 border-white bg-success">
+            <div class="card-body text-center">
+              <h3>{{ pool.poolName }}</h3>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <h5 class="mt-4 text-dark">Select a Pool below to Join</h5>
+    <h5 class="mb-3 text-primary">v v v v v v v v v v v v v v v</h5>
   </div>
-  <h5 class="mt-4 text-dark">Select a Pool below to Join</h5>
-  <h5 class="mb-3 text-primary">v v v v v v v v v v v v v v v</h5>
+  <app-pool></app-pool>
 </div>
-<app-pool></app-pool>
