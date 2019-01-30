@@ -23,10 +23,13 @@
     "@angular/router": "~7.0.0",
     "@types/stripe-checkout": "^1.0.2",
     "@types/stripejs": "^3.0.3",
+    "angular-oauth2-oidc": "^5.0.2",
+    "auth0-js": "^9.9.1",
     "bootstrap": "^4.2.1",
     "core-js": "^2.5.4",
     "firebase": "^5.8.1",
     "rxjs": "~6.3.3",
+    "stripe-angular": "^0.3.0",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

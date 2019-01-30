@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { PaymentService } from '../payment.service';
 import { environment } from 'src/environments/environment';
 import { AuthService, User } from 'src/app/core/auth.service';
+declare const StripeCheckout: any;
 
 @Component({
   selector: 'app-make-payment',
@@ -19,20 +20,19 @@ export class MakePaymentComponent implements OnInit {
 
   ngOnInit() {
     this.auth.user$.subscribe(user => this.user = user);
-    // this.handler = StripeCheckout.configure({
-    //   key: environment.stripeKey,
-    //   image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
-    //   locale: 'auto',
-    //   token: token => {
-    //     this.paymentSvc.processPayment(token, this.amount);
-    //   }
-    // });
+    this.handler = StripeCheckout.configure({
+      key: environment.stripeKey,
+      image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+      locale: 'auto',
+      token: token => {
+        // this.paymentSvc.CreatePayment(token, this.amount);
+      }
+    });
   }
 
   handlePayment() {
     this.handler.open({
-      name: 'Game of Thrones Game',
-      description: 'Deposit Funds to Account',
+      name: 'Tanner Driggers',
       amount: this.amount
     });
   }

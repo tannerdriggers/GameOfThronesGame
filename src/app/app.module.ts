@@ -13,6 +13,8 @@ import { FirestoreSettingsToken } from '@angular/fire/firestore';
 import { PaymentModule } from './payments/payment/payment.module';
 import { PoolComponent } from './main/pool/pool.component';
 import { MainComponent } from './main/main/main.component';
+import { Module as StripeModule } from 'stripe-angular';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { MainComponent } from './main/main/main.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
+    StripeModule.forRoot(),
     PaymentModule,
     CoreModule
   ],

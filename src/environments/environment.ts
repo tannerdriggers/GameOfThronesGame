@@ -12,7 +12,8 @@ export const environment = {
     storageBucket: 'gameofthrones-game.appspot.com',
     messagingSenderId: '803138401882'
   },
-  stripeKey: 'sk_test_k0NMMAwVaoxkyvDfAzYN2Zf1'
+  stripeKey: 'pk_test_eEl9tF8iGZ5Dq1QdKGkisPl0',
+  api: 'https://gameofthronesgameapi.herokuapp.com'
 };
 
 /*
