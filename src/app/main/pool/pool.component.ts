@@ -46,7 +46,8 @@ export class PoolComponent implements OnInit {
           return actions.map(a => {
             const data = a.payload.doc.data() as pool;
             const id = a.payload.doc.id;
-            return { id, ...data };
+            const numUsers: number = data.users.length;
+            return { id, numUsers, ...data };
           });
         })
       );
@@ -89,9 +90,6 @@ export class PoolComponent implements OnInit {
       name: 'Game of Thrones Game',
       amount: this.amount
     })
-    .catch(error => {
-      console.log(error);  
-    });
   }
 
   @HostListener('window:popstate')

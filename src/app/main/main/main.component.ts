@@ -28,13 +28,21 @@ export class MainComponent implements OnInit {
           return actions.map(a => {
             const data = a.payload.doc.data() as pool;
             const id = a.payload.doc.id;
-            return { id, ...data };
+            const numUsers = data.users.length;
+            return { id, numUsers, ...data };
           });
         })
       )
 
-      this.userPools$.subscribe(up => console.log(up));
+      this.userPools$.subscribe(up => {
+        console.log(up);
+        
+      });
     });
+  }
+
+  joinPool(poolId: string) {
+    console.log('Entering Pool')
   }
 
   createPool() {

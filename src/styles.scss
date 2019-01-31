@@ -2,6 +2,10 @@
 @import '~bootstrap/scss/bootstrap-reboot';
 @import '~bootstrap/scss/bootstrap-grid';
 
+body {
+    min-height: 75rem;
+}
+
 .btn-patreon {
     background-color: rgb(248, 90, 68);
     border-color: rgb(248, 90, 68);
@@ -13,4 +17,8 @@
 
 .m-body {
     margin-top: 4.5rem !important;
+}
+
+p {
+    margin-bottom: 0rem;
 }

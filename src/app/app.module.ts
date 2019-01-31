@@ -15,6 +15,7 @@ import { PoolComponent } from './main/pool/pool.component';
 import { MainComponent } from './main/main/main.component';
 import { Module as StripeModule } from 'stripe-angular';
 import { HttpClientModule } from '@angular/common/http';
+import { GameComponent } from './main/game/game.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     UserProfileComponent,
     NavbarComponent,
     PoolComponent,
-    MainComponent
+    MainComponent,
+    GameComponent
   ],
   imports: [
     BrowserModule,
