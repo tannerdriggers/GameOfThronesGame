@@ -2,7 +2,7 @@ import { Injectable, NgZone } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreDocument, DocumentReference } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { auth } from 'firebase/app';
 
@@ -30,7 +30,8 @@ export class AuthService {
           return of(null);
         }
       })
-    )
+    );
+
   }
 
   googleLogin() {
@@ -44,7 +45,7 @@ export class AuthService {
         this.updateUserData(credential.user)
       })
       .then(() => {
-        this.ngzone.run(() => this.router.navigate(['main']));
+        this.ngzone.run(() => this.router.navigate(['pool']));
       })
   }
 
@@ -75,6 +76,10 @@ export class AuthService {
 
   homeRedirect() {
     this.router.navigate(['/']);
+  }
+
+  poolRedirect() {
+    this.router.navigate(['pool']);
   }
   
 }

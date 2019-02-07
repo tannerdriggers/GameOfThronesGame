@@ -12,10 +12,16 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FirestoreSettingsToken } from '@angular/fire/firestore';
 import { PaymentModule } from './payments/payment/payment.module';
 import { PoolComponent } from './main/pool/pool.component';
-import { MainComponent } from './main/main/main.component';
 import { Module as StripeModule } from 'stripe-angular';
 import { HttpClientModule } from '@angular/common/http';
 import { GameComponent } from './main/game/game.component';
+import { LoadingComponent } from './main/loading/loading.component';
+import { CreatePoolComponent } from './main/create-pool/create-pool.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { OrderModule } from 'ngx-order-pipe';
+import { PoolPaymentComponent } from './main/pool-payment/pool-payment.component';
+import { NgxPayPalModule } from 'ngx-paypal';
+import { AdminPageComponent } from './admin/admin-page/admin-page.component';
 
 @NgModule({
   declarations: [
@@ -23,8 +29,11 @@ import { GameComponent } from './main/game/game.component';
     UserProfileComponent,
     NavbarComponent,
     PoolComponent,
-    MainComponent,
-    GameComponent
+    GameComponent,
+    LoadingComponent,
+    CreatePoolComponent,
+    PoolPaymentComponent,
+    AdminPageComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +42,9 @@ import { GameComponent } from './main/game/game.component';
     AngularFireModule.initializeApp(environment.firebase),
     StripeModule.forRoot(),
     PaymentModule,
+    ReactiveFormsModule,
+    OrderModule,
+    NgxPayPalModule,
     CoreModule
   ],
   providers: [AuthGuard, { provide: FirestoreSettingsToken, useValue: {} }],

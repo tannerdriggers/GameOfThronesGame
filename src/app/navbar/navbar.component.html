@@ -10,13 +10,16 @@
     <div class="collapse navbar-collapse" id="navbarResponsive" [ngClass]="{ 'show': navbarOpen }">
       <ul class="navbar-nav ml-auto">
         <li *ngIf="!auth.user$ | async" class="nav-item">
-          <a class="nav-link text-gold text-right" (click)="auth.homeRedirect(); toggleNavbar();">Login</a>
+          <a class="nav-link text-right" (click)="auth.homeRedirect(); toggleNavbar();">Login</a>
         </li>
         <li *ngIf="auth.user$ | async" class="nav-item">
-          <a class="nav-link text-gold text-right" (click)="auth.homeRedirect(); toggleNavbar();">Account</a>
+          <a class="nav-link text-right" (click)="auth.poolRedirect(); toggleNavbar();">GoT Game</a>
+        </li>
+        <li *ngIf="auth.user$ | async" class="nav-item">
+          <a class="nav-link text-right" (click)="auth.homeRedirect(); toggleNavbar();">Account</a>
         </li>
         <li *ngIf="auth.user$ | async">
-          <a class="nav-link text-gold text-right" (click)="auth.signOut(); toggleNavbar();">Logout</a>
+          <a class="nav-link text-right" (click)="auth.signOut(); toggleNavbar();">Logout</a>
         </li>
       </ul>
     </div>

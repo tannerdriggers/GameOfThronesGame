@@ -1,5 +1,4 @@
 <div *ngIf="auth.user$ | async">
-  <button (click)="handlePayment()" class="btn btn-light">
-    Pay Fee
-  </button>
+  <button (click)="AddTransaction()" class="btn btn-light mb-3">Add Payment</button>
+  <ngx-paypal [config]="payPalConfig"></ngx-paypal>
 </div>

@@ -1,0 +1,40 @@
+<div *ngIf="user">
+  <div class="card mx-auto ml-4 mr-4 border-white p-3 bg-light">
+    <h1 class="text-dark mb-3 card-title text-center">
+      Create a Pool
+    </h1>
+    <hr>
+    <form [formGroup]="poolForm" (ngSubmit)="Submit()" class="container card-body">
+      <div class="row">
+        <h5>Pool Name:</h5>
+      </div>
+      <div class="row mb-4">
+        <div class="w-100">
+          <input type="text" formControlName="name" class="form-control" aria-label="Pool Name" placeholder="Jeffrey's Star's">
+          <div *ngIf="!poolForm.value.name">
+            <p class="text-danger">*Required</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <h5>Entry Fee: </h5>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">usd $</span>
+          </div>
+          <input type="text" formControlName="entryFee" class="form-control" aria-label="Entry Fee" placeholder="Rounded to Nearest 2 Decimals">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div *ngIf="!ValidEntryFee()">
+          <p class="text-danger">*Required</p>
+        </div>
+      </div>
+      <div class="row w-100">
+        <button class="btn btn-success" type="submit" [disabled]="!poolForm.valid || !ValidEntryFee()">Submit</button>
+      </div>
+    </form>
+    <button class="btn btn-warning" (click)="auth.poolRedirect()">Go Back</button>
+  </div>
+  <app-loading [loading]="loading"></app-loading>
+</div>
