@@ -6,7 +6,19 @@ import { Observable } from 'rxjs';
 import { map, merge } from 'rxjs/operators';
 import { User, AuthService } from 'src/app/core/auth.service';
 
-interface GoTAnswer {
+export interface CorrectAnswerChoice {
+  id?: string;
+  alive: boolean;
+  dead: boolean;
+  whitewalker?: boolean;
+}
+
+export interface Answer {
+  answer: DocumentReference;
+  character: DocumentReference;
+}
+
+export interface GoTAnswer {
   user: DocumentReference;
   pool: DocumentReference;
   first: string;
@@ -16,7 +28,8 @@ interface GoTAnswer {
   whiteWalker?: boolean;
 }
 
-interface character {
+export interface character {
+  id?: string;
   first: string;
   last: string;
 }

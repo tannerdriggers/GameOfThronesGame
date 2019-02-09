@@ -10,6 +10,8 @@ import { PayPalConfig, PayPalIntegrationType, PayPalEnvironment } from 'ngx-payp
 declare const StripeCheckout: any;
 
 export interface pool {
+  id?: string;
+  numUsers?: number;
   CreatedBy: DocumentReference;
   CreatedOn: Date;
   finished: boolean;

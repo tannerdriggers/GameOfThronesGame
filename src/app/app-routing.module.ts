@@ -7,6 +7,7 @@ import { CreatePoolComponent } from './main/create-pool/create-pool.component';
 import { AuthGuard } from './core/auth.guard';
 import { MakePaymentComponent } from './payments/make-payment/make-payment.component';
 import { PoolPaymentComponent } from './main/pool-payment/pool-payment.component';
+import { AdminPageComponent } from './admin/admin-page/admin-page.component';
 
 const routes: Routes = [
   { path: '', component: UserProfileComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'game/:poolId', component: GameComponent, canActivate: [AuthGuard] },
   { path: 'game', redirectTo: 'pool', pathMatch: 'full' },
   { path: 'makepayment', component: MakePaymentComponent, canActivate: [AuthGuard] },
+  { path: 'admin', component: AdminPageComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
