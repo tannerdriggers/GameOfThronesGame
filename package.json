@@ -28,6 +28,7 @@
     "bootstrap": "^4.2.1",
     "core-js": "^2.5.4",
     "firebase": "^5.8.1",
+    "firebase-tools": "^6.3.1",
     "ngx-order-pipe": "^2.0.2",
     "ngx-paypal": "<4.0.0",
     "rxjs": "~6.3.3",
