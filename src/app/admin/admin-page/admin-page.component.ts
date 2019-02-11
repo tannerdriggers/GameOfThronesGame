@@ -79,9 +79,9 @@ export class AdminPageComponent implements OnInit {
                             for (let u of pool.users) {
                               for (let us of users) {
                                 if (u.id === us.uid) {
+                                  let numberCorrect = 0;
+                                  let numberWrong = 0;
                                   for (let select of selections) {
-                                    let numberCorrect = 0;
-                                    let numberWrong = 0;
                                     for (let ans of answers) {
                                       let answer: CorrectAnswerChoice;
                                       for (let ansChoice of answerChoices) {
@@ -149,7 +149,7 @@ export class AdminPageComponent implements OnInit {
                                       } // selection found
                                     } // each correct answer
                                   } // each selection
-
+                                  
                                   break; // user found
                                 } // user found
                               } // each user

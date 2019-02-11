@@ -4,17 +4,18 @@
       <h3>{{ pool.poolName }}</h3>
     </div>
     <div *ngIf="pool.users.length > 0" class="card-body text-left">
-      <h3>Users:</h3>
-      <div *ngFor="let u of pool.users" class="card">
-        <div class="card-body">
-          <div class="card-title mx-auto">
-            <img class="user-img-smaller rounded-circle card-img-top" [src]="getUser(u)?.photoURL" alt="User Image">
+      <div class="d-flex flex-wrap justify-content-center">
+        <div *ngFor="let u of pool.users" class="card">
+          <div class="card-body">
+            <div class="card-title mx-auto">
+              <img class="user-img-smaller rounded-circle card-img-top" [src]="getUser(u)?.photoURL" alt="User Image">
+            </div>
+            <h5>{{ getUser(u)?.displayName }}</h5>
+            <p>email: <strong>{{ getUser(u)?.email }}</strong></p>
+            <p>uid: <strong><i>{{ getUser(u)?.uid }}</i></strong></p>
+            <p>Number Correct: <strong>{{ getNumberCorrect(pool.id, getUser(u).uid) }}</strong></p>
+            <p>Number Wrong: <strong>{{ getNumberWrong(pool.id, getUser(u).uid) }}</strong></p>
           </div>
-          <h5>{{ getUser(u)?.displayName }}</h5>
-          <p>email: <strong>{{ getUser(u)?.email }}</strong></p>
-          <p>uid: <strong><i>{{ getUser(u)?.uid }}</i></strong></p>
-          <p>Number Correct: <strong>{{ getNumberCorrect(pool.id, getUser(u).uid) }}</strong></p>
-          <p>Number Wrong: <strong>{{ getNumberWrong(pool.id, getUser(u).uid) }}</strong></p>
         </div>
       </div>
     </div>
