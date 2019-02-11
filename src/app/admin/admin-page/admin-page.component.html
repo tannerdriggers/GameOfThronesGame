@@ -1,14 +1,14 @@
 <div *ngIf="user">
-  <div *ngFor="let pool of pools$ | async | orderBy: 'poolName':false:true" class="card mx-auto ml-4 mr-4 border-white text-center p-3 bg-light">
+  <div *ngFor="let pool of pools$ | async | orderBy: 'poolName':false:true" class="card mx-auto ml-4 mr-4 border-white text-center p-3 bg-light mb-3">
     <div class="card-title">
       <h3>{{ pool.poolName }}</h3>
     </div>
     <div *ngIf="pool.users.length > 0" class="card-body text-left">
       <div class="d-flex flex-wrap justify-content-center">
-        <div *ngFor="let u of pool.users" class="card">
+        <div *ngFor="let u of pool.users" class="card card-pool">
           <div class="card-body">
             <div class="card-title mx-auto">
-              <img class="user-img-smaller rounded-circle card-img-top" [src]="getUser(u)?.photoURL" alt="User Image">
+              <img class="user-img-smaller rounded-circle card-img-top mx-auto d-block" [src]="getUser(u)?.photoURL" alt="User Image">
             </div>
             <h5>{{ getUser(u)?.displayName }}</h5>
             <p>email: <strong>{{ getUser(u)?.email }}</strong></p>
