@@ -18,7 +18,7 @@
           Turns into White Walker
         </h5>
       </div>
-      <div *ngFor="let character of characters$ | async">
+      <div *ngFor="let character of characters$ | async | orderBy: 'last':false:true">
         <div class="row mb-2 pb-2 border-bottom">
           <p class="col-3 pl-0 pr-1 border-right">
             {{ character.first }} {{ character.last }}

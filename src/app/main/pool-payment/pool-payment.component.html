@@ -1,14 +1,16 @@
 <div *ngIf="pool">
   <div class="card mx-auto ml-4 mr-4 border-white text-center p-3 bg-light ">
     <div class="card-title">
-      <h3><strong>Pay to Enter Pool: {{ pool.poolName }}</strong></h3>
+      <h3 class="mb-4"><strong>Pay to Enter Pool: <br>{{ pool.poolName }}</strong></h3>
       <h4>Entry Fee: {{ EntryFeeFormat(pool.poolEntryFee) }}</h4>
       <h4>Number of Players: {{ pool.numUsers }}</h4>
     </div>
     <div class="card-body">
       <div class="card bg-white">
-        <div class="card-body">
-          <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+        <div class="pt-3 pb-1">
+          <div class="paypal-btn">
+            <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+          </div>
           <div *ngIf="error" class="text-danger">
             <hr>
             <h3>An Error Has Occurred. Please Try Again or Contact An Admin.</h3>
