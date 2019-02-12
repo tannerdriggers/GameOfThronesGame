@@ -143,7 +143,7 @@ export class GameComponent implements OnInit {
     }
 
     // console.log(data.alive + ' :: ' + data.dead + ' :: ' + data.whiteWalker);
-    this.db.doc(`/selections/${this.user.uid}_${first}_${last}`).set(data, { merge: true });
+    this.db.doc(`/selections/${this.user.uid}_${first}_${last}_${this.poolId}`).set(data, { merge: true });
   }
 
   WhiteWalkerSelectionToggle(first: string, last: string) {
@@ -162,7 +162,7 @@ export class GameComponent implements OnInit {
         }
         // console.log(!selection.whiteWalker);
         this.userSelections[selectionNumber] = data;
-        this.db.doc(`/selections/${this.user.uid}_${first}_${last}`).set(data, { merge: true });
+        this.db.doc(`/selections/${this.user.uid}_${first}_${last}_${this.poolId}`).set(data, { merge: true });
       }
       selectionNumber++;
     }
