@@ -93,6 +93,19 @@ export class PoolComponent implements OnInit {
           this.EnterPool(poolId);
         }
       }
+      if (this.poolData.poolEntryFee === 0) {
+        userInData = true;
+        let data = {
+          intent: "sale",
+          orderID: "",
+          payerID: "",
+          paymentID: "",
+          paymentToken: "",
+          returnUrl: ""
+        }
+        this.paymentSvc.CreatePayment(data, 0, this.poolId);
+        this.EnterPool(poolId);
+      }
       if (this.poolData.users === null || !userInData) {
         this.amount = this.poolData.poolEntryFee;
         this.handlePayment();
@@ -132,10 +145,5 @@ export class PoolComponent implements OnInit {
     console.log(nav);
     this.router.navigate([nav]);
   }
-
-  // @HostListener('window:popstate')
-  // onpopstate() {
-  //   this.handler.close()
-  // }
 
 }
