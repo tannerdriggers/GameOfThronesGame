@@ -14,7 +14,7 @@ export const environment = {
   },
   paypalKeys: {
     sandbox: 'AT32PQy3r3aSrUqOtG8bHMnysyz8NSSWCdG_Bfe9KCUYaueJ1Fp6TqTYG76XcBIkVcHlnK3eKT4rIMrF',
-    live: ''
+    live: 'AZ__pIPyG-U_GbC-b8nctqP_6CC4DPkRiqoBmf_b7-Rmgrcbqhkw-pTTImJRI8w_8XNW6dFqqGOp7rRX'
   },
   stripeKeys: {
     testKey: 'pk_test_eEl9tF8iGZ5Dq1QdKGkisPl0',

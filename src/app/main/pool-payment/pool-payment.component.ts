@@ -59,10 +59,10 @@ export class PoolPaymentComponent implements OnInit {
   }
 
   private initPayment() {
-    this.payPalConfig = new PayPalConfig(PayPalIntegrationType.ClientSideREST, PayPalEnvironment.Sandbox, {
+    this.payPalConfig = new PayPalConfig(PayPalIntegrationType.ClientSideREST, PayPalEnvironment.Production, {
       commit: true,
       client: {
-        sandbox: environment.paypalKeys.sandbox
+        production: environment.paypalKeys.live
       },
       button: {
         label: 'paypal',
