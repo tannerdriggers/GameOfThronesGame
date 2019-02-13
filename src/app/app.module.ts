@@ -22,6 +22,8 @@ import { OrderModule } from 'ngx-order-pipe';
 import { PoolPaymentComponent } from './main/pool-payment/pool-payment.component';
 import { NgxPayPalModule } from 'ngx-paypal';
 import { AdminPageComponent } from './admin/admin-page/admin-page.component';
+import { WebViewComponent } from './main/web-view/web-view.component';
+import { ClipboardModule } from 'ngx-clipboard';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { AdminPageComponent } from './admin/admin-page/admin-page.component';
     LoadingComponent,
     CreatePoolComponent,
     PoolPaymentComponent,
-    AdminPageComponent
+    AdminPageComponent,
+    WebViewComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +48,7 @@ import { AdminPageComponent } from './admin/admin-page/admin-page.component';
     ReactiveFormsModule,
     OrderModule,
     NgxPayPalModule,
+    ClipboardModule,
     CoreModule
   ],
   providers: [AuthGuard, { provide: FirestoreSettingsToken, useValue: {} }],

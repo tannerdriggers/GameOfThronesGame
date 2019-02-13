@@ -1,0 +1,10 @@
+<div class="card mx-auto ml-4 mr-4 border-white text-center p-3 bg-light">
+  <div class="card-body text-center">
+    <h2 class="mb-4 text-danger">This website does not work inside this app. Please Copy the URL below and paste it into
+      a web browser.</h2>
+    <div id="url" class="card mb-4">
+      <p class="mb-3 mt-3">{{ getUrl() }}</p>
+    </div>
+    <button ngxClipboard class="btn btn-success" [cbContent]="getUrl()">Copy to Clipboard</button>
+  </div>
+</div>

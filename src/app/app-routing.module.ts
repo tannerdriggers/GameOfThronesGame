@@ -8,6 +8,7 @@ import { AuthGuard } from './core/auth.guard';
 import { MakePaymentComponent } from './payments/make-payment/make-payment.component';
 import { PoolPaymentComponent } from './main/pool-payment/pool-payment.component';
 import { AdminPageComponent } from './admin/admin-page/admin-page.component';
+import { WebViewComponent } from './main/web-view/web-view.component';
 
 const routes: Routes = [
   { path: '', component: UserProfileComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'game', redirectTo: 'pool', pathMatch: 'full' },
   { path: 'makepayment', component: MakePaymentComponent, canActivate: [AuthGuard] },
   { path: 'admin', component: AdminPageComponent, canActivate: [AuthGuard] },
+  { path: 'webview', component: WebViewComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
